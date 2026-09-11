@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Choices</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="page-shell">
+        <section class="glass-card menu-card">
+
+            <div class="menu-header">
+                <div class="menu-heart" aria-hidden="true">♥</div>
+
+                <p class="eyebrow">Your choices</p>
+
+                <h1>What would you like to have?</h1>
+
+                <p class="welcome-text">
+                    Choose three meals, two desserts,
+                    and one drink. Water is included.
+                </p>
+            </div>
+
+
+            <!-- MEALS -->
+
+            <section class="choice-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Meals</h2>
+                        <p>Pick 3 out of 9</p>
+                    </div>
+
+                    <span class="choice-counter" id="mealCounter">
+                        0 / 3
+                    </span>
+                </div>
+
+                <div class="choice-grid">
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="meal" value="Pizza">
+                        <span class="choice-content">
+                            <span class="food-icon">🍕</span>
+                            <span>Pizza</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="meal" value="Burger">
+                        <span class="choice-content">
+                            <span class="food-icon">🍔</span>
+                            <span>Burger</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="meal" value="Chicken">
+                        <span class="choice-content">
+                            <span class="food-icon">🍗</span>
+                            <span>Chicken</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="meal" value="Pasta">
+                        <span class="choice-content">
+                            <span class="food-icon">🍝</span>
+                            <span>Pasta</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="meal" value="Rice">
+                        <span class="choice-content">
+                            <span class="food-icon">🍚</span>
+                            <span>Rice</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="meal" value="Fries">
+                        <span class="choice-content">
+                            <span class="food-icon">🍟</span>
+                            <span>Fries</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="meal" value="Steak">
+                        <span class="choice-content">
+                            <span class="food-icon">🥩</span>
+                            <span>Steak</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="meal" value="Sushi">
+                        <span class="choice-content">
+                            <span class="food-icon">🍣</span>
+                            <span>Sushi</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="meal" value="Salad">
+                        <span class="choice-content">
+                            <span class="food-icon">🥗</span>
+                            <span>Salad</span>
+                        </span>
+                    </label>
+
+                </div>
+
+            </section>
+
+
+            <!-- DESSERTS -->
+
+            <section class="choice-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Desserts</h2>
+                        <p>Pick 2 out of 6</p>
+                    </div>
+
+                    <span class="choice-counter" id="dessertCounter">
+                        0 / 2
+                    </span>
+                </div>
+
+                <div class="choice-grid">
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="dessert" value="Ice Cream">
+                        <span class="choice-content">
+                            <span class="food-icon">🍨</span>
+                            <span>Ice Cream</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="dessert" value="Cake">
+                        <span class="choice-content">
+                            <span class="food-icon">🍰</span>
+                            <span>Cake</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="dessert" value="Fruit">
+                        <span class="choice-content">
+                            <span class="food-icon">🍓</span>
+                            <span>Fruit</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="dessert" value="Chocolate">
+                        <span class="choice-content">
+                            <span class="food-icon">🍫</span>
+                            <span>Chocolate</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="dessert" value="Cheesecake">
+                        <span class="choice-content">
+                            <span class="food-icon">🍰</span>
+                            <span>Cheesecake</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="dessert" value="Cookies">
+                        <span class="choice-content">
+                            <span class="food-icon">🍪</span>
+                            <span>Cookies</span>
+                        </span>
+                    </label>
+
+                </div>
+
+            </section>
+
+
+            <!-- DRINKS -->
+
+            <section class="choice-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Drinks</h2>
+                        <p>Water is included + pick 1</p>
+                    </div>
+
+                    <span class="choice-counter" id="drinkCounter">
+                        1 / 2
+                    </span>
+                </div>
+
+                <div class="choice-grid drinks-grid">
+
+                    <label class="choice-item selected compulsory">
+                        <input
+                            type="checkbox"
+                            name="drink"
+                            value="Water"
+                            checked
+                            disabled
+                        >
+
+                        <span class="choice-content">
+                            <span class="food-icon">💧</span>
+                            <span>Water</span>
+                        </span>
+
+                        <span class="included-mark">Included</span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="drink" value="Juice">
+                        <span class="choice-content">
+                            <span class="food-icon">🧃</span>
+                            <span>Juice</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="drink" value="Soda">
+                        <span class="choice-content">
+                            <span class="food-icon">🥤</span>
+                            <span>Soda</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="drink" value="Milkshake">
+                        <span class="choice-content">
+                            <span class="food-icon">🥛</span>
+                            <span>Milkshake</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="drink" value="Lemonade">
+                        <span class="choice-content">
+                            <span class="food-icon">🍋</span>
+                            <span>Lemonade</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="drink" value="Iced Tea">
+                        <span class="choice-content">
+                            <span class="food-icon">🧋</span>
+                            <span>Iced Tea</span>
+                        </span>
+                    </label>
+
+                    <label class="choice-item">
+                        <input type="checkbox" name="drink" value="Smoothie">
+                        <span class="choice-content">
+                            <span class="food-icon">🍓</span>
+                            <span>Smoothie</span>
+                        </span>
+                    </label>
+
+                </div>
+
+            </section>
+
+
+            <button type="button"
+                    id="menuDone"
+                    class="primary-button form-button">
+                Done
+            </button>
+
+        </section>
+    </main>
+
+
+    <script>
+        const mealBoxes = document.querySelectorAll(
+            'input[name="meal"]'
+        );
+
+        const dessertBoxes = document.querySelectorAll(
+            'input[name="dessert"]'
+        );
+
+        const drinkBoxes = document.querySelectorAll(
+            'input[name="drink"]:not([disabled])'
+        );
+
+        const mealCounter = document.getElementById("mealCounter");
+        const dessertCounter = document.getElementById("dessertCounter");
+        const drinkCounter = document.getElementById("drinkCounter");
+
+        function updateCounter(boxes, counter, maximum, included = 0) {
+            const selected = [...boxes].filter(box => box.checked).length;
+
+            counter.textContent =
+                `${selected + included} / ${maximum + included}`;
+        }
+
+        function enforceLimit(boxes, maximum) {
+            boxes.forEach(box => {
+                box.addEventListener("change", () => {
+
+                    const selected = [...boxes].filter(
+                        item => item.checked
+                    ).length;
+
+                    if (selected > maximum) {
+                        box.checked = false;
+                    }
+                });
+            });
+        }
+
+        function updateAllCounters() {
+            updateCounter(
+                mealBoxes,
+                mealCounter,
+                3
+            );
+
+            updateCounter(
+                dessertBoxes,
+                dessertCounter,
+                2
+            );
+
+            updateCounter(
+                drinkBoxes,
+                drinkCounter,
+                1,
+                1
+            );
+        }
+
+        enforceLimit(mealBoxes, 3);
+        enforceLimit(dessertBoxes, 2);
+        enforceLimit(drinkBoxes, 1);
+
+        document.querySelectorAll(
+            '.choice-item input'
+        ).forEach(input => {
+            input.addEventListener(
+                "change",
+                updateAllCounters
+            );
+        });
+
+        updateAllCounters();
+
+
+        document.getElementById("menuDone").addEventListener(
+            "click",
+            () => {
+
+                const meals = [...mealBoxes]
+                    .filter(box => box.checked);
+
+                const desserts = [...dessertBoxes]
+                    .filter(box => box.checked);
+
+                const drinks = [...drinkBoxes]
+                    .filter(box => box.checked);
+
+                if (meals.length !== 3) {
+                    alert("Please choose exactly 3 meals.");
+                    return;
+                }
+
+                if (desserts.length !== 2) {
+                    alert("Please choose exactly 2 desserts.");
+                    return;
+                }
+
+                if (drinks.length !== 1) {
+                    alert("Please choose exactly 1 additional drink.");
+                    return;
+                }
+
+                const params = new URLSearchParams();
+
+                meals.forEach(box =>
+                    params.append("meal", box.value)
+                );
+
+                desserts.forEach(box =>
+                    params.append("dessert", box.value)
+                );
+
+                params.append("drink", "Water");
+                params.append("drink", drinks[0].value);
+
+                window.location.href =
+                    "{{ url_for('transport') }}?" +
+                    params.toString();
+            }
+        );
+    </script>
+
+</body>
+</html>

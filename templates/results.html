@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Results</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+{% if not authenticated %}
+
+<main class="private-login-page">
+    <section class="private-login-card">
+
+        <div class="private-login-heart" aria-hidden="true">♥</div>
+
+        <p class="eyebrow">Private Area</p>
+
+        <h1>Invitation Results</h1>
+
+        <p class="private-login-text">
+            Enter the private password to view the responses.
+        </p>
+
+        {% if error %}
+            <div class="login-error">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('results') }}">
+            <label for="results-password">Password</label>
+
+            <input
+                id="results-password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Enter password"
+                required
+                autofocus
+            >
+
+            <button type="submit" class="primary-button">
+                Open Results
+            </button>
+        </form>
+
+    </section>
+</main>
+
+{% else %}
+
+<main class="page-shell">
+    <section class="glass-card results-card">
+
+        <div class="menu-header">
+            <div class="menu-heart" aria-hidden="true">♥</div>
+
+            <p class="eyebrow">Private Results</p>
+
+            <h1>Invitation Responses</h1>
+
+            <p class="welcome-text">
+                Here are the answers submitted through your invitation.
+            </p>
+
+            <div class="results-actions">
+                <a href="{{ url_for('create_invitation_link') }}"
+                   class="primary-button results-create-button">
+                    + Create New Invitation
+                </a>
+
+                <a href="{{ url_for('results_logout') }}"
+                   class="results-logout">
+                    Lock Results
+                </a>
+            </div>
+        </div>
+
+        {% if invitations %}
+
+            {% for invitation in invitations %}
+                <article class="result-card">
+
+                    <div class="result-header">
+                        <h2>Invitation #{{ invitation["id"] }}</h2>
+                        <span class="result-status">Completed</span>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Place</span>
+                        <strong>{{ invitation["place"] or "Not provided" }}</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Date</span>
+                        <strong>{{ invitation["date"] or "Not provided" }}</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Meals</span>
+                        <strong>{{ invitation["meals"] or "None" }}</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Desserts</span>
+                        <strong>{{ invitation["desserts"] or "None" }}</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Drinks</span>
+                        <strong>{{ invitation["drinks"] or "None" }}</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Transport</span>
+                        <strong>
+                            KSh {{ invitation["transport"] or "0" }}
+                        </strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Completed</span>
+                        <strong>
+                            {{ invitation["completed_at"] or "Unknown" }}
+                        </strong>
+                    </div>
+
+                </article>
+            {% endfor %}
+
+        {% else %}
+
+            <div class="empty-results">
+                <h2>No completed invitations yet.</h2>
+                <p>
+                    Once someone completes an invitation,
+                    their responses will appear here.
+                </p>
+            </div>
+
+        {% endif %}
+
+    </section>
+</main>
+
+{% endif %}
+
+</body>
+</html>

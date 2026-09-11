@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Getting There</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="page-shell">
+        <section class="glass-card transport-card">
+
+            <div class="menu-header">
+                <div class="menu-heart" aria-hidden="true">♥</div>
+
+                <p class="eyebrow">One last detail</p>
+
+                <h1>How much will you need to reach the place?</h1>
+
+                <p class="welcome-text">
+                    Enter the amount you expect to need for your transport.
+                </p>
+            </div>
+
+            <form action="{{ url_for('thank_you') }}" method="get">
+
+                <div class="form-group">
+
+                    <label for="transport">
+                        Transport amount
+                    </label>
+
+                    <div class="amount-input">
+
+                        <span class="currency-symbol">
+                            KSh
+                        </span>
+
+                        <input
+                            type="number"
+                            id="transport"
+                            name="transport"
+                            min="0"
+                            step="1"
+                            inputmode="numeric"
+                            placeholder="Enter amount"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="primary-button form-button">
+                    Continue
+                </button>
+
+            </form>
+
+        </section>
+    </main>
+
+</body>
+</html>

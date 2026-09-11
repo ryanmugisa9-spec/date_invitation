@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Invitation</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<main class="private-login-page">
+    <section class="private-login-card new-invitation-card">
+
+        <div class="private-login-heart" aria-hidden="true">♥</div>
+
+        <p class="eyebrow">Private Area</p>
+
+        <h1>New Invitation Created</h1>
+
+        <p class="private-login-text">
+            Your invitation is ready to share.
+        </p>
+
+        <div class="invitation-link-box">
+            <input
+                id="invitation-link"
+                type="text"
+                value="{{ invitation_url }}"
+                readonly
+                aria-label="Invitation link"
+            >
+        </div>
+
+        <button
+            type="button"
+            class="primary-button"
+            onclick="copyInvitationLink()"
+            id="copy-button">
+            Copy Invitation Link
+        </button>
+
+        <a href="{{ url_for('results') }}"
+           class="results-logout">
+            Back to Results
+        </a>
+
+    </section>
+</main>
+
+<script>
+function copyInvitationLink() {
+    const input = document.getElementById("invitation-link");
+    const button = document.getElementById("copy-button");
+
+    navigator.clipboard.writeText(input.value).then(() => {
+        button.textContent = "Link Copied";
+
+        setTimeout(() => {
+            button.textContent = "Copy Invitation Link";
+        }, 2000);
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Date</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="page-shell">
+        <section class="glass-card">
+
+            <p class="eyebrow">Let's plan it</p>
+
+            <h1>Choose our date.</h1>
+
+            <p class="welcome-text">
+                Pick the place and day that work best for you.
+            </p>
+
+            <form action="{{ url_for('menu') }}" method="get">
+
+                <div class="form-group">
+                    <label for="place">Where should we go?</label>
+
+                    <input
+                        type="text"
+                        id="place"
+                        name="place"
+                        placeholder="Enter a place"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Which day?</label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="primary-button form-button">
+                    Continue
+                </button>
+
+            </form>
+
+        </section>
+    </main>
+
+</body>
+</html>

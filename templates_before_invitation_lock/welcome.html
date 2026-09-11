@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Little Invitation</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="page-welcome">
+
+    <main class="page-shell">
+        <section class="glass-card welcome-card">
+
+            <div class="heart-mark" aria-hidden="true">♥</div>
+
+            <p class="eyebrow">Hey ANITEZ</p>
+
+            <h1>It's me, Ryan.</h1>
+
+            <p class="welcome-text">
+                I've got a little something for you.
+                Take a moment, follow the little journey,
+                and see where it leads.
+            </p>
+
+            <a href="{{ url_for('question') }}" class="primary-button">
+                Begin
+            </a>
+
+        </section>
+    </main>
+
+</body>
+</html>

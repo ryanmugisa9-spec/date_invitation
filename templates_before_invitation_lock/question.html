@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Question For You</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="page-shell">
+        <section class="glass-card welcome-card question-card">
+
+            <p class="eyebrow">ANITEZ</p>
+
+            <h1>Would you let me take you out on a date?</h1>
+
+            <p class="welcome-text">
+                There's one little question before we continue.
+            </p>
+
+            <div class="button-group">
+
+                <a href="{{ url_for('date') }}" class="primary-button">
+                    Yes
+                </a>
+
+                <button type="button"
+                        class="secondary-button no-button"
+                        id="noButton">
+                    No
+                </button>
+
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        const noButton = document.getElementById("noButton");
+        const card = document.querySelector(".question-card");
+
+        function moveNoButton() {
+            const cardRect = card.getBoundingClientRect();
+            const buttonRect = noButton.getBoundingClientRect();
+
+            const padding = 18;
+
+            const maxX =
+                cardRect.width - buttonRect.width - padding;
+
+            const maxY =
+                cardRect.height - buttonRect.height - padding;
+
+            const minX = padding;
+            const minY = padding;
+
+            const newX =
+                Math.floor(
+                    Math.random() * Math.max(maxX - minX, 1)
+                ) + minX;
+
+            const newY =
+                Math.floor(
+                    Math.random() * Math.max(maxY - minY, 1)
+                ) + minY;
+
+            noButton.style.position = "absolute";
+            noButton.style.left = newX + "px";
+            noButton.style.top = newY + "px";
+        }
+
+        noButton.addEventListener("mouseenter", moveNoButton);
+
+        noButton.addEventListener("touchstart", function(event) {
+            event.preventDefault();
+            moveNoButton();
+        });
+
+        noButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            moveNoButton();
+        });
+    </script>
+
+</body>
+</html>
