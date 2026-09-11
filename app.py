@@ -210,7 +210,7 @@ def complete_invitation(token):
             UPDATE invitations
             SET completed = TRUE,
                 completed_at = %s
-            WHERE token = %
+            WHERE token = %s
             AND completed = FALSE
         """, (completed_at, token))
     else:
